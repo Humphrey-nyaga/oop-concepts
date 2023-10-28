@@ -22,7 +22,7 @@ public class App
 
     private static void inheritanceAndPolymorphismWithAbstractClassAndInterface() {
         List<BankAccountI> bankAccountIList = new ArrayList<>();
-        bankAccountIList.add(new MoneyMarketAccount("456", LocalDate.now(),4000.0));
+        bankAccountIList.add(new MoneyMarketAccount("456", LocalDate.now(),9000.0));
         bankAccountIList.add(new SavingAccount("124", LocalDate.now(),50000.0));
 
         bankAccountIList.forEach(bankAccountI -> bankAccountI.deposit(1000.0));
