@@ -1,5 +1,5 @@
 package org.oop.inheritancewithinterfaces;
 
-public interface SavingsInterestRateI {
+public interface SavingsInterestI {
    void  savingsInterest(Double interestRate);
 }
