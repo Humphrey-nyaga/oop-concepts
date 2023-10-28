@@ -1,6 +1,6 @@
 package org.oop.inheritancewithinterfaces;
 
-public class SavingAccount implements BankAccountI, SavingsInterestI{
+public class SavingAccount implements BankAccountI, SavingsInterestI {
     @Override
     public void deposit() {
 
