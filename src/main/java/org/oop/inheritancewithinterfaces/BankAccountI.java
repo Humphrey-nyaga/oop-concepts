@@ -1,6 +1,8 @@
 package org.oop.inheritancewithinterfaces;
 
 public interface BankAccountI {
-    void deposit();
+    void deposit(Double amount);
     void balance();
+    void withdraw(double amount);
+
 }

@@ -2,18 +2,8 @@ package org.oop.inheritancewithinterfaces;
 
 import java.time.LocalDate;
 
-public class CertificateOfDepositAccount implements CertificateOfDepositI, SavingsInterestI,BankAccountI {
+public class CertificateOfDepositAccount implements CertificateOfDepositI, SavingsInterestI {
 
-
-    @Override
-    public void deposit() {
-
-    }
-
-    @Override
-    public void balance() {
-
-    }
 
     @Override
     public LocalDate getMaturityDate() {
