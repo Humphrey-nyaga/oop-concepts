@@ -1,9 +1,11 @@
 package org.oop.inheritancewithinterfaces;
 
+import org.oop.inheritancewithinterfaces.interfaces.SavingsInterestI;
+
 import java.time.LocalDate;
 import java.time.Period;
 
-public class MoneyMarketAccount extends BankAccountImpl implements SavingsInterestI,WithdrawalsI{
+public class MoneyMarketAccount extends BankAccountImpl implements SavingsInterestI {
 
     private final Double MINIMUM_DEPOSIT = 1000.0;
     private final Double MINIMUM_INITIAL_INVESTMENT_AMOUNT = 5000.0;
@@ -40,8 +42,8 @@ public class MoneyMarketAccount extends BankAccountImpl implements SavingsIntere
         Period period = Period.between(getDateCreated(), LocalDate.now());
         int months = period.getYears() * 12 + period.getMonths();
         double monthlyInterestRate = interestRate / 12;
-        double balance = getBalance() * Math.pow(1 + monthlyInterestRate, months);
-        double interest = balance - getBalance();
+        double interestPlusPrincipal = getBalance() * Math.pow(1 + monthlyInterestRate, months);
+        double interest = interestPlusPrincipal - getBalance();
         System.out.println("MMF Account Interest Earned: " + interest);
     }
 

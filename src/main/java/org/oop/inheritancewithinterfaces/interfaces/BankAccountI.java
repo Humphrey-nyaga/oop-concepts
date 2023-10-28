@@ -1,4 +1,4 @@
-package org.oop.inheritancewithinterfaces;
+package org.oop.inheritancewithinterfaces.interfaces;
 
 public interface BankAccountI {
     void deposit(Double amount);

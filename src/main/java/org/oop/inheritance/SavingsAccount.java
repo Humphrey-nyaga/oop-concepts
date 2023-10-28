@@ -1,4 +1,4 @@
-package org.oop.inheritancewithoutinterfaces;
+package org.oop.inheritance;
 
 public class SavingsAccount extends Account  {
     @Override

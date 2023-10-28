@@ -1,11 +1,11 @@
 package org.oop;
 
-import org.oop.inheritancewithinterfaces.BankAccountI;
+import org.oop.inheritancewithinterfaces.interfaces.BankAccountI;
 import org.oop.inheritancewithinterfaces.MoneyMarketAccount;
 import org.oop.inheritancewithinterfaces.SavingAccount;
-import org.oop.inheritancewithoutinterfaces.Account;
-import org.oop.inheritancewithoutinterfaces.FixedDepositAccount;
-import org.oop.inheritancewithoutinterfaces.SavingsAccount;
+import org.oop.inheritance.Account;
+import org.oop.inheritance.FixedDepositAccount;
+import org.oop.inheritance.SavingsAccount;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,7 +24,6 @@ public class App
         List<BankAccountI> bankAccountIList = new ArrayList<>();
         bankAccountIList.add(new MoneyMarketAccount("456", LocalDate.now(),9000.0));
         bankAccountIList.add(new SavingAccount("124", LocalDate.now(),50000.0));
-
         bankAccountIList.forEach(bankAccountI -> bankAccountI.deposit(1000.0));
         bankAccountIList.forEach(bankAccountI -> bankAccountI.withdraw(5000.0));
         bankAccountIList.forEach(BankAccountI::balance);

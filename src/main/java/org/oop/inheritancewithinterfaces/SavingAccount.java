@@ -1,8 +1,10 @@
 package org.oop.inheritancewithinterfaces;
 
+import org.oop.inheritancewithinterfaces.interfaces.SavingsInterestI;
+
 import java.time.LocalDate;
 
-public class SavingAccount extends BankAccountImpl implements SavingsInterestI, WithdrawalsI {
+public class SavingAccount extends BankAccountImpl implements SavingsInterestI {
     private final Double MINIMUM_DEPOSIT = 100.0;
 
     public SavingAccount(String accountId, LocalDate dateCreated, Double balance) {

@@ -1,9 +1,11 @@
 package org.oop.inheritancewithinterfaces;
 
+import org.oop.inheritancewithinterfaces.interfaces.BankAccountI;
+
 import java.time.LocalDate;
 
 /*This class demonstrates both abstraction and Encapsulation*/
-public abstract class BankAccountImpl implements BankAccountI{
+public abstract class BankAccountImpl implements BankAccountI {
     private String accountId;
     private LocalDate dateCreated;
     private Double balance = 0.0;
