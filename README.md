@@ -1,10 +1,9 @@
 # OOP Concepts 
 ### Inheritance
     - Inheritance using concrete classes.
-    - Inheritance by implemementing interfaces.
+    - Inheritance by implementing interfaces.
 ### Polymorphism
     - By overiding concrete clases implmementaion.
-    - By overriding interface methods and implementing 
-        differently per class.
+    - By overriding interface methods and implementing differently per class.
 ### Abstraction
 ### Encapsulation 

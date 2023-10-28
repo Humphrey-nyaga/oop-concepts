@@ -1,15 +1,12 @@
 package org.oop.inheritancewithinterfaces;
+public class MoneyMarketAccount implements BankAccountI, SavingsInterestI,WithdrawalsI{
 
-public class SavingAccount implements BankAccountI, SavingsInterestI, WithdrawalsI {
     @Override
     public void deposit() {
 
     }
 
-    @Override
-    public void withdraw(double amount) {
 
-    }
 
     @Override
     public void balance() {
@@ -18,6 +15,11 @@ public class SavingAccount implements BankAccountI, SavingsInterestI, Withdrawal
 
     @Override
     public void calculateInterest(Double interestRate) {
+
+    }
+
+    @Override
+    public void withdraw(double amount) {
 
     }
 }

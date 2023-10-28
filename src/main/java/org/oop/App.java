@@ -1,14 +1,25 @@
 package org.oop;
 
 import org.oop.inheritancewithoutinterfaces.Account;
+import org.oop.inheritancewithoutinterfaces.FixedDepositAccount;
 import org.oop.inheritancewithoutinterfaces.SavingsAccount;
 
-/**
- * Hello world!
- *
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class App 
 {
-    Account account = new SavingsAccount();
+    public static void main(String[] args) {
+        inheritanceWithConcreteClasses();
+
+    }
+
+    private static void inheritanceWithConcreteClasses() {
+        List<Account> accounts = new ArrayList<>();
+        accounts.add(new SavingsAccount());
+        accounts.add(new FixedDepositAccount());
+        accounts.forEach(Account::deposit);
+    }
 
 }
