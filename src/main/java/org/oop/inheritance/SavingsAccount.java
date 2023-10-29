@@ -1,5 +1,6 @@
 package org.oop.inheritance;
 
+/*Avoid implementation of extra methods to achieve Liskov Substitution Principle */
 public class SavingsAccount extends Account  {
     @Override
     public void deposit() {
@@ -9,7 +10,6 @@ public class SavingsAccount extends Account  {
     @Override
     public void withdraw() {
         System.out.println("Savings Account withdrawal");
-
     }
 
     @Override

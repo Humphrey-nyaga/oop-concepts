@@ -1,31 +1,33 @@
 package org.oop.inheritancewithinterfaces;
 
-import org.oop.inheritancewithinterfaces.interfaces.SavingsInterestI;
+import org.oop.inheritancewithinterfaces.interfaces.BankAccountI;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-public class MoneyMarketAccount extends BankAccountImpl implements SavingsInterestI {
-
+/*Money market account implementation of bank account*/
+public class MoneyMarketAccount extends Account implements BankAccountI {
     private final Double MINIMUM_DEPOSIT = 1000.0;
     private final Double MINIMUM_INITIAL_INVESTMENT_AMOUNT = 5000.0;
     private final Integer WITHDRAWAL_SETTLEMENT_DAYS = 2;
-    private  LocalDate withdrawalSettlementDate;
+
+    private LocalDate withdrawalSettlementDate;
+
     public MoneyMarketAccount(String accountId, LocalDate dateCreated, Double OpeningBalance) {
         super(accountId, dateCreated, OpeningBalance);
         withdrawalSettlementDate = null;
-        if ( OpeningBalance < MINIMUM_INITIAL_INVESTMENT_AMOUNT) {
-            throw new IllegalArgumentException("Creating an MMF account requires minimum of "+ MINIMUM_INITIAL_INVESTMENT_AMOUNT);
+        if (OpeningBalance < MINIMUM_INITIAL_INVESTMENT_AMOUNT) {
+            throw new IllegalArgumentException("Creating an MMF account requires minimum of " + MINIMUM_INITIAL_INVESTMENT_AMOUNT);
         }
     }
 
     @Override
     public void deposit(Double amount) {
 
-        if (amount < MINIMUM_DEPOSIT){
-            System.out.println("Minimum deposit to MMF Account is Ksh: "+ MINIMUM_DEPOSIT);
+        if (amount < MINIMUM_DEPOSIT) {
+            System.out.println("Minimum deposit to MMF Account is Ksh: " + MINIMUM_DEPOSIT);
         } else {
-            setBalance( MINIMUM_DEPOSIT + getBalance());
+            setBalance(MINIMUM_DEPOSIT + getBalance());
             System.out.println("Successful Deposit of Ksh " + amount + " to MMF Account." +
                     " \t Current Balance Is Ksh " + getBalance());
         }
@@ -37,13 +39,11 @@ public class MoneyMarketAccount extends BankAccountImpl implements SavingsIntere
     }
 
     @Override
-    public void calculateInterest(Double interestRate) {
-
+    public void calculateInterest(Double annualInterestRate) {
         Period period = Period.between(getDateCreated(), LocalDate.now());
         int months = period.getYears() * 12 + period.getMonths();
-        double monthlyInterestRate = interestRate / 12;
-        double interestPlusPrincipal = getBalance() * Math.pow(1 + monthlyInterestRate, months);
-        double interest = interestPlusPrincipal - getBalance();
+        double multiplier = Math.pow(1.0 + annualInterestRate / 100.0, months) - 1.0;
+        double interest = multiplier * getBalance();
         System.out.println("MMF Account Interest Earned: " + interest);
     }
 
@@ -60,8 +60,13 @@ public class MoneyMarketAccount extends BankAccountImpl implements SavingsIntere
             setBalance(getBalance() - amount);
             withdrawalSettlementDate = LocalDate.now().plusDays(2);
             System.out.println("MMF Account: Withdrawal of: " + amount + " initiated." +
-                    " \tSettlement to be completed in " +WITHDRAWAL_SETTLEMENT_DAYS + " days" );
+                    " \tSettlement to be completed in " + WITHDRAWAL_SETTLEMENT_DAYS + " days");
         }
 
+    }
+
+    @Override
+    public void accountId() {
+        System.out.println("Account ID: " + getAccountId());
     }
 }

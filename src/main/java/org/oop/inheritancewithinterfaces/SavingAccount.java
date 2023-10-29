@@ -1,10 +1,10 @@
 package org.oop.inheritancewithinterfaces;
 
-import org.oop.inheritancewithinterfaces.interfaces.SavingsInterestI;
+import org.oop.inheritancewithinterfaces.interfaces.BankAccountI;
 
 import java.time.LocalDate;
 
-public class SavingAccount extends BankAccountImpl implements SavingsInterestI {
+public class SavingAccount extends Account implements BankAccountI {
     private final Double MINIMUM_DEPOSIT = 100.0;
 
     public SavingAccount(String accountId, LocalDate dateCreated, Double balance) {
@@ -12,10 +12,15 @@ public class SavingAccount extends BankAccountImpl implements SavingsInterestI {
     }
 
     @Override
+    public void accountId() {
+        System.out.println("Account ID: " + getAccountId());
+    }
+
+    @Override
     public void deposit(Double amount) {
         if (amount >= MINIMUM_DEPOSIT) {
             setBalance(getBalance() + amount);
-            System.out.println("Deposit of Ksh " + amount + " successful. " +
+            System.out.println("Deposit of Ksh " + amount + " to Savings Account successful. " +
                     "\t Current balance:  " + getBalance());
         } else {
             System.out.println("Minimum deposit of Ksh " + MINIMUM_DEPOSIT + " Required");
@@ -41,7 +46,7 @@ public class SavingAccount extends BankAccountImpl implements SavingsInterestI {
     public void calculateInterest(Double interestRate) {
 
         if (getBalance() != 0 && interestRate > 0) {
-            double simpleInterest = getBalance() * interestRate;
+            double simpleInterest = getBalance() * (interestRate / 100.0);
             System.out.println(" Savings Account Interest: " + simpleInterest);
         } else {
             System.out.println("Interest could not be determined. Try Again");
